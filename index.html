@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>jsPTB Demos</title>
+  <link rel="stylesheet" href="3rdparty/simple.min.css" />
+</head>
+<body>
+  <script>
+    function Source(demo) {
+      let url = `https://github.com/jsptb/demos/blob/main/${demo}.js`;
+      window.open(url, "_blank");
+    }
+
+    function Run(demo) {
+      let w = window.screen.width,
+        h = window.screen.height,
+        win = `left=0,top=0,width=${w},height=${h}`;
+      window.open(`run.html?demo=${demo}`, "", win);
+    }
+
+    function ChoiceDemo() {
+      let params = new URLSearchParams();
+      let radio = document.querySelector('input[name="device"]:checked');
+      if (radio?.value == "K") params.set("keyboard", 1);
+      let upload = document.querySelector('input[name="upload"]').value;
+      if (upload) params.set("upload", upload);
+      Run("ChoiceDemo&" + params.toString());
+    }
+  </script>
+
+  <header>
+    <h2>jsPTB demos</h2>
+  </header>
+  <main>
+    <h4>Basic Drawing Demo</h4>
+    <p>
+      Shows how to draw basic visual stimuli (dots, lines, rectangles, circles,
+      texts, and images), coordinates, and colors.
+    </p>
+    <button onclick="Run('BasicDrawingDemo')">Run</button>
+    <button onclick="Source('BasicDrawingDemo')">Show source code</button>
+
+    <hr />
+
+    <h4>Random Dot Motion Demo</h4>
+    <p>
+      Uses the <a href="https://mathjs.org/">math.js</a> library to calculate
+      the dot coordinates. Also demonstrates keyboard response queries and
+      screenshots of the canvas.<br />
+      <i>Press Escape to quit, "S" key for screenshot.</i>
+    </p>
+    <button onclick="Run('DotDemo')">Run</button>
+    <button onclick="Source('DotDemo')">Show source code</button>
+
+    <hr />
+
+    <h4>CFS Demo</h4>
+    <p>
+      Continuous flashing suppression demo showing how to make red-cyan
+      anaglyphs from a target image and randomly generated Mondrian patterns.<br />
+      <i>
+        View with red-cyan 3D glasses. Press and hold a mouse button,
+        touchscreen, or Space key to show the target.
+      </i>
+    </p>
+    <button onclick="Run('CFSDemo')">Run</button>
+    <button onclick="Source('CFSDemo')">Show source code</button>
+
+    <hr />
+
+    <h4>Quest Demo</h4>
+    <p>
+      A demo that uses the
+      <a href="https://kurokida.github.io/jsQUEST/">jsQUEST</a> library to
+      estimate thresholds.
+    </p>
+    <button onclick="Run('QuestDemo')">Run</button>
+    <button onclick="Source('QuestDemo')">Show source code</button>
+
+    <hr />
+
+    <h4>Visual Crowding Demo</h4>
+    <p>
+      A visual crowding demo that displays the
+      <a href="https://github.com/denispelli/CriticalSpacing">Sloan font</a>
+      (with the help of
+      <a href="https://github.com/opentypejs/opentype.js">opentype.js</a>
+      library).<br />
+      <i>Choose the target letter with mouse.</i>
+    </p>
+    <button onclick="Run('CrowdingDemo')">Run</button>
+    <button onclick="Source('CrowdingDemo')">Show source code</button>
+
+    <hr />
+
+    <h4>Movie Demo</h4>
+    <p>Shows how to play an audio and video clip.</p>
+    <button onclick="Run('MovieDemo')">Run</button>
+    <button onclick="Source('MovieDemo')">Show source code</button>
+
+    <hr />
+
+    <h4>Long Text Demo</h4>
+    <p>Shows how to draw paragraphs with a width limit.</p>
+    <button onclick="Run('LongTextDemo')">Run</button>
+    <button onclick="Source('LongTextDemo')">Show source code</button>
+
+    <hr />
+
+    <h4>Gabor Demo</h4>
+    <p>Draws a few Gabor patches.</p>
+    <button onclick="Run('GaborDemo')">Run</button>
+    <button onclick="Source('GaborDemo')">Show source code</button>
+
+    <hr />
+
+    <h4>Mouse Demo</h4>
+    <p>
+      Shows how to implement a slider, a button and a drawing area.<br />
+      <i
+        >Drag the slider to set the size, click on the area below to draw an
+        icon. Click the red button to clear.</i
+      >
+    </p>
+    <button onclick="Run('MouseDemo')">Run</button>
+    <button onclick="Source('MouseDemo')">Show source code</button>
+
+    <hr />
+
+    <h4>Choice Experiment Demo</h4>
+    <p>
+      A dot moves either to the left or to the right. Choose the motion
+      direction with keyboard or mouse. After 5 trials, experiment data will be
+      saved locally as CSV, and will be uploaded to a URL (if specified). This
+      also demonstrates how to pass options to the experiment page from here:
+    </p>
+    <p>
+      <label>Input device:</label><br />
+      <label><input name="device" type="radio" value="K" />Keyboard</label>
+      <label><input name="device" type="radio" value="M" checked />Mouse</label>
+    </p>
+    <p>
+      <label>Upload data to URL (optional)</label><br />
+      <input type="text" name="upload" />
+    </p>
+    <button onclick="ChoiceDemo()">Run</button>
+    <button onclick="Source('ChoiceDemo')">Show source code</button>
+  </main>
+</body>
