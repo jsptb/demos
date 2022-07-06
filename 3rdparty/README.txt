@@ -12,6 +12,10 @@ jsQUEST.js
 MIT License
 https://github.com/kurokida/jsQUEST/blob/main/dist/jsQUEST.js
 
+twgl.js
+MIT License
+https://github.com/greggman/twgl.js/blob/master/dist/4.x/twgl-full.min.js
+
 simple.min.css
 MIT License
 https://cdn.simplecss.org/simple.min.css
